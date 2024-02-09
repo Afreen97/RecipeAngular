@@ -1,0 +1,26 @@
+<div class="container" *ngIf="item">
+    <img src="{{item.imageUrl}}" width="100px" height="100px"/>
+    <p>{{item.title}}</p>
+    <div class="row">
+      <div class="col-xs-12">
+        <div
+          class="btn-group"
+          appDropdownDirective>
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle">
+            Manage Recipe <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu"  >
+            <li><a href="#">To Shopping List</a></li>
+            <li><a style="cursor: pointer;" (click)="onEdit()">Edit Recipe</a></li>
+            <li><a style="cursor: pointer;" (click)="onDelete()">Delete Recipe</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+      <p>{{item.desc}}</p>
+      <div *ngFor="let item of item.ingredients;">
+         <div class="item">{{item.ingredient}} - {{item.quantity}}</div>
+      </div>
+    </div>
